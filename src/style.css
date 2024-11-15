@@ -1,0 +1,373 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+i {
+  display: flex;
+}
+
+h2 {
+  display: flex;
+  font-size: 26px;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto";
+  background-color: rgb(254, 228, 194);
+  margin: 0px;
+}
+
+#content {
+  display: flex;
+}
+
+/* Sidebar-related CSS */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 25%;
+  height: 100vh;
+}
+
+#sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-left: -25px;
+}
+
+#projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-project-container, .sidebar-add-project-container {
+  width: 90%;
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  height: 40px;
+  padding-left: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.sidebar-project-title-container {
+  display: flex;
+  margin-left: 20px;
+}
+
+.sidebar-project-container:hover, .sidebar-add-project-container:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.currently-selected-project {
+  background-color: black;
+  color: white;
+}
+
+.sidebar-project-title {
+  font-size: 18px;
+}
+
+/* Main related CSS */
+#main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+
+#main > .project-container {
+  width: 70%;
+}
+
+.title-and-delete-container {
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: 30% 20% 45%;
+  align-items: center;
+}
+
+.title-and-delete-container:nth-child(3) {
+  justify-self: end;
+}
+
+#add-to-do-button {
+  font-size: 32px;
+  margin-left: 25px;
+}
+
+#add-to-do-button:hover {
+  color: rgb(78, 78, 78);
+  cursor: pointer;
+}
+
+.delete-project-button {
+  background-color: transparent;
+  margin-top: 5px;;
+  font-size: 24px;
+  align-self: center;
+  justify-self: end;
+}
+
+.delete-project-button:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/* (Main) To-do related CSS */
+.to-do-preview-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.to-do-header-container {
+  background-color: white;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 10% 70% 10%;
+  justify-items: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.to-do-header-container:hover {
+  background-color: black;
+  color: white;
+}
+
+.title-and-priority-container {
+  justify-self: start;
+  height: 100px;
+  font-size: 18px;
+}
+
+.to-do-status {
+  width: 25px;
+  height: 25px;
+}
+
+.completed-to-do {
+  opacity: 0.5;
+}
+
+.to-do-status {
+  cursor: pointer;
+}
+
+.to-do-preview-title {
+  margin-bottom: 5px;
+}
+
+.to-do-priority {
+  margin-top: 0px;
+}
+
+.delete-to-do-button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+}
+
+.delete-to-do-button:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.priority-and-description-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.to-do-description {
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  height: fit-content;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: black;
+  color: white;
+}
+
+.to-do-description {
+  display: grid;
+  grid-template-columns: 10% 10% 70% 10%;
+  justify-items: center;
+  align-items: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.to-do-description > div {
+  display: grid; 
+  justify-self: start;
+  grid-column: 3;
+  font-size: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.expand-button {
+  background-color: rgb(254, 228, 194);
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-left: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.expand-button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+/* Form related CSS */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+  display: block;  /* Show overlay when form is active */
+  z-index: 2;  /* Ensure it sits on top of everything */
+}
+
+#project-form {
+  display: grid;
+  grid-template:
+  "projectinput projectinput"
+  "cancelButton confirmButton";
+  gap: 25px;
+  position: fixed;        /* Position it over all elements */
+  top: 30%;               /* Center vertically */
+  left: 50%;              /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;          /* Make sure it's above other content */
+}
+
+#project-form-name-label {
+  font-size: 18px;
+}
+
+.form-cancel-button, .form-submit-button {
+  border-radius: 6px;
+  border: none;
+  color: white;
+  height: 35px;
+  width: 100px;
+  justify-self: center;
+}
+
+#project-form .form-submit-button {
+  margin-left: 45px;
+}
+
+.form-cancel-button {
+  background-color: red;
+}
+
+.form-cancel-button:hover {
+  background-color: rgb(193, 6, 6);
+}
+
+.form-submit-button {
+  background-color: green;
+}
+
+.form-submit-button:hover {
+  background-color: rgb(0, 106, 0);
+}
+
+#to-do-form {
+  background-color: white;
+  display: grid;
+  grid-template:
+  "label"
+  "label"
+  "label"
+  "label"
+  "label"
+  "label"
+  "label"
+  "label"
+  "buttons";
+  width: 400px;
+  height: 500px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /* Or 'fixed' if you want it to stay centered when scrolling */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Optional: for vertical centering */
+  top: 50%;
+  transform: translate(-50%, -50%); 
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#to-do-form .form-cancel-button {
+  grid-area: buttons;
+  justify-self: start;
+}
+
+#to-do-form .form-submit-button {
+  grid-area: buttons;
+  justify-self: end;
+}
+
+#to-do-title-input {
+  width: 250px;
+}
+
+#to-do-description-input {
+  width: 250px;
+  height: 75px;
+}
+
+#to-do-due-date-input {
+  width: 250px;
+}
+
+#to-do-priority-input {
+  width: 250px;
+  margin-bottom: 30px;
+}
+
+#submit-to-do-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: green;
+}
+
+#submit-to-do-button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white
+}
